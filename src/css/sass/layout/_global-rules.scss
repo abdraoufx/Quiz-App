@@ -1,0 +1,122 @@
+@use "../helpers/funcs" as *;
+
+@use "../variables/variables" as *;
+
+* {
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $drkBlack;
+  color: $white;
+
+  font-family: "Barlow", sans-serif;
+  font-size: rem(18);
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: rem(1170);
+
+  padding: 0 rem(15);
+  margin-inline: auto;
+}
+
+input[type="radio"] {
+  position: relative;
+
+  cursor: pointer;
+
+  &:checked {
+    background-color: $blue;
+
+    & + label {
+      color: $blue;
+
+      font-weight: 500;
+    }
+  }
+
+  &:checked::before {
+    width: 100%;
+  }
+
+  & + label {
+    font-size: rem(16.5);
+
+    text-transform: capitalize;
+
+    cursor: pointer;
+  }
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 60%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 0%;
+    height: rem(14);
+
+    background-color: $blue;
+
+    border-radius: 50%;
+  }
+}
+
+.blue-btn {
+  position: relative;
+
+  cursor: pointer;
+
+  align-self: center;
+
+  background-color: $blue;
+  color: $drkBlack;
+
+  border: none;
+
+  padding: rem(15) rem(20);
+  border-radius: rem(5);
+
+  font-size: rem(17);
+  font-weight: bold;
+
+  text-transform: capitalize;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 0%;
+    top: 0%;
+
+    height: 100%;
+    width: 0%;
+
+    background-color: rgba($white, 0.1);
+
+    transition: $trnsDu ease-in-out;
+  }
+}
